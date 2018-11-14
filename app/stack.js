@@ -5,6 +5,7 @@ import SignInSMSScreen from "./loginsms";
 import HomeScreen from "./Home";
 import OtherScreen from "./Other";
 import AppTab from "./appstack";
+import AuthLoadingScreen from "./AuthLoadingScreen";
 
 // Implementation of HomeScreen, OtherScreen, SignInScreen, AuthLoadingScreen
 // goes here.
@@ -34,10 +35,11 @@ const AuthStack = createStackNavigator(
 
 export default createSwitchNavigator(
   {
+    AuthLoading: AuthLoadingScreen,
     App: AppStack,
     Auth: AuthStack
   },
   {
-    initialRouteName: "Auth"
+    initialRouteName: "AuthLoading"
   }
 );

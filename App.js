@@ -10,6 +10,7 @@ import React, { Component } from "react";
 import { Platform, StyleSheet, Text, View } from "react-native";
 import RootStack from "./app/stack";
 import codePush from "react-native-code-push";
+import Update from './app/update'
 
 // const RootStack = createStackNavigator({
 //   Home: {
@@ -19,10 +20,7 @@ import codePush from "react-native-code-push";
 
 export default class App extends React.Component {
   componentDidMount() {
-    codePush.sync({
-      updateDialog: true,
-      installMode: codePush.InstallMode.IMMEDIATE
-    });
+    Update.update()
   }
 
   render() {
