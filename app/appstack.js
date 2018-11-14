@@ -17,6 +17,7 @@ import QRCode from "react-native-qrcode";
 // import { QRScannerView } from "ac-qrcode-scanner-rn";
 import Scanner from "./ScannerScreen";
 import api from "./api/api";
+import codePush from "react-native-code-push";
 
 {
   /*  */
@@ -83,10 +84,25 @@ class HomeScreen extends React.Component {
 }
 
 class SettingsScreen extends React.Component {
+  _checkupdate() {
+    codePush.sync({
+      updateDialog: true,
+      installMode: codePush.InstallMode.IMMEDIATE
+    });
+  }
+
   render() {
     return (
       <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-        <Text>设置!</Text>
+        <TouchableOpacity
+          onPress={this._checkupdate.bind(this)}
+          disabled={this._shouldDisable()}
+          style={this._shouldDisable() ? { opacity: 0.5 } : {}}
+        >
+          <View style={styles.button}>
+            <Text style={styles.buttonText}>检查更新</Text>
+          </View>
+        </TouchableOpacity>
       </View>
     );
   }
