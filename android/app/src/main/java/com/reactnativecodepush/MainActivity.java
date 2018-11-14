@@ -1,6 +1,8 @@
 package com.reactnativecodepush;
 
 import com.facebook.react.ReactActivity;
+import com.oblador.vectoricons.VectorIconsPackage;
+import org.reactnative.camera.RNCameraPackage;
 
 public class MainActivity extends ReactActivity {
 
